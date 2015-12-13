@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>Peliculas en existencia</title>
+</head>
+<body>
+	<div>
+		<h1>Lista de Peliculas existentes</h1>
+		<button onclick="window.location='{% url "nueva_pelicula" %}'">Nueva Pelicula</button>
+		{% for pelicula in peliculas %}
+			<h3>{{pelicula.name}}</h3>
+			<ul>
+				<li>Pelicula: {{pelicula.titulo}}</li>
+				<li>Clave: {{pelicula.clave}}</li>
+				<input type ="checkbox" name "pelicula {{pelicula.titulo}}" value "{{pelicula.id}}"/>Rentar
+			</ul>
+			<a href = "javascript: if(confirm('Deseas editar {{pelicula}}??')) window.location='{% url "editar_pelicula" pk=pelicula.id %}'"> Editar</a>
+			<a href = "javascript: if(confirm('Deseas eliminar {{pelicula}}??')) window.location='{% url "eliminar_pelicula" pk=pelicula.id %}'"> Eliminar</a>
+			<hr>
+			<br>
+		{% endfor %}
+		<button onclick="window.location='{% url "renta_nueva" %}'">Nueva Renta</button>
+	</div>
+</body>
+</html>

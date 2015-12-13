@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Clientes</title>
+</head>
+<body>
+	<div>
+		<h1>Lista de clientes</h1>		
+		{% for cliente in clientes %}
+			<h3>Cliente: {{cliente.first_name        }}</h3>
+			<ul>
+				<li>Celular: {{cliente.celular}}</li>
+				<li>RFC: {{cliente.RFC}}</li>
+			</ul>			
+			<hr>
+			<br>
+		{% endfor %}
+	</div>
+</body>
+</html>

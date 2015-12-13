@@ -1,0 +1,28 @@
+"""def nueva_pelicula(request):
+	if request.method == "POST":
+		form = PeliculasForm(request.POST)
+		print request.POST
+		if form.is_valid():
+			pelicula = form.save()
+			pelicula.save()
+			return redirect('listar_peliculas')
+	else:
+		form = PeliculasForm
+	return render(request,'peliculas/pelicula_nueva.html',{'form':form, 'etiqueta':'Nueva'})
+
+
+
+#url(r'^nueva_pelicula/$', nueva_pelicula, name = "nueva_pelicula"),
+
+//Botones de listar_clientes.html
+<a href = "javascript: if(confirm('Deseas editar {{cliente}}??')) window.location='{% url "editar" pk=cliente.id %}'"> Editar</a>
+			<a href = "javascript: if(confirm('Deseas eliminar {{cliente}}??')) window.location='{% url "eliminar" pk=cliente.id %}'"> Eliminar</a>
+
+//Botones de listar_empleados.html
+<a href = "javascript: if(confirm('Deseas editar {{empleado}}??')) window.location='{% url "editar" pk=empleado.id %}'"> Editar</a>
+			<a href = "javascript: if(confirm('Deseas eliminar {{empleado}}??')) window.location='{% url "eliminar" pk=empleado.id %}'"> Eliminar</a>
+
+
+//BOTONES PARA CADA PELICULA EN LISTAR_PELICULAS.HTML
+<a href = "javascript: if(confirm('Deseas editar {{pelicula}}??')) window.location='{% url "editar" pk=pelicula.id %}'"> Editar</a>
+			<a href = "javascript: if(confirm('Deseas eliminar {{pelicula}}??')) window.location='{% url "eliminar" pk=pelicula.id %}'"> Eliminar</a>

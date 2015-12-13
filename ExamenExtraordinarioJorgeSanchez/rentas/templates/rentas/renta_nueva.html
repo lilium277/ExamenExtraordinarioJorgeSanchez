@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>Renta {{etiqueta}}</title>
+</head>
+<body>
+		<div>
+		<h1> {{etiqueta}} Renta</h1>
+			<form method="POST">
+				{% csrf_token %}
+					{{ form.as_p }}
+					<input type = "submit" value = "Guardar" />
+					<button class="btn btn-primary" type="button" onclick="window.location='{% url "lista_rentas" %}'"> Cancelar </button>	
+			</form>
+	</div>
+</body>
+</html>

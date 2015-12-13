@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Rentas</title>
+</head>
+<body>
+	<div>
+		<h1>Lista de rentas por cliente</h1>	
+		{% for renta in rentas %}
+			<h3>{{renta.cliente}}</h3>
+			<ul>
+				<li>{{renta.fecha_renta}}</li>
+			</ul>
+			<hr>
+			<br>
+		{% endfor %}
+	</div>
+</body>
+</html>
