@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^empleados/', include('empleados.urls')),
     url(r'^peliculas/', include('peliculas.urls')),
     url(r'^rentas/', include('rentas.urls')),    
-    #url(r'^detallerenta/', include('detallerenta.urls')),
+    url(r'^detallerenta/', include('detallerenta.urls')),
 ]

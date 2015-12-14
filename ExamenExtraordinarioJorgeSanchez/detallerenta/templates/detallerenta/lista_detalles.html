@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>Detalles de detalles</title>
+</head>
+<body>
+	<div>
+		<h1>Lista de Detalles por Renta</h1>
+		y de jodido llega a aqui???
+		{% for detalle in detalles %}
+			<br>o a aqui????
+			<h3>{{detalle.renta.cliente.user.first_name}}</h3>
+			<ul>
+				<li>{{detalle.pelicula.titulo}}</li>
+				<li>{{detalle.renta}}</li>
+				<li>{{detalle.fecha_entrega}}</li>
+			</ul>
+			<hr>
+			<br>
+			y ACA???????????????
+		{% endfor %}
+		o hasta aca?????
+	</div>
+</body>
+</html>

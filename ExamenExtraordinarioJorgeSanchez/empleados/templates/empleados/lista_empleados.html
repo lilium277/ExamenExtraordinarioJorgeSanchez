@@ -6,10 +6,10 @@
 	<div>
 		<h1>Lista de empleados</h1>		
 		{% for empleado in empleados %}
-			<h3>{{empleado}}</h3>
+			<h3>Empleado: {{empleado.user.username}}</h3>
 			<ul>
-				<li>{{empleado.first_name}}</li>
-				<li>{{empleado.RFC}}</li>
+				<li>Nombre: {{empleado.user.first_name}} {{empleado.user.last_name}}</li>
+				<li>RC: {{empleado.RFC}}</li>
 			</ul>			
 			<hr>
 			<br>

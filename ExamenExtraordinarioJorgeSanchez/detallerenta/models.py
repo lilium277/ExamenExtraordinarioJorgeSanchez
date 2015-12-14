@@ -4,9 +4,9 @@ from rentas.models import Rentas
 
 # Create your models here.
 class DetallesRentas(models.Model):
-	fecha_entrega = models.DateField('Fecha de renta')
+	fecha_entrega = models.DateField('Fecha de entrega')
 	pelicula = models.ForeignKey(Peliculas)
 	renta = models.ForeignKey(Rentas)
 
 	def __str__(self):
-		return self.titulo
+		return self.pelicula.titulo

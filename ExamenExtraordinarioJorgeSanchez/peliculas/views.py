@@ -5,6 +5,7 @@ from peliculas.forms import PeliculasForm
 # Create your views here.
 def listar_peliculas(request):
 	peliculas = Peliculas.objects.all()
+	#return render(request, 'peliculas/lista_peliculas_para_renta.html', {'peliculas':peliculas})
 	return render(request, 'peliculas/lista_peliculas.html', {'peliculas':peliculas})
 
 def nueva_pelicula(request):

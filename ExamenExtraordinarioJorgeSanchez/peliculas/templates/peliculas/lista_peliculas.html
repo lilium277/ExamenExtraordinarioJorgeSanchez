@@ -5,20 +5,21 @@
 <body>
 	<div>
 		<h1>Lista de Peliculas existentes</h1>
-		<button onclick="window.location='{% url "nueva_pelicula" %}'">Nueva Pelicula</button>
+		<button onclick="window.location='{% url "nueva_pelicula" %}'" name= "Nueva_pelicula">Nueva Pelicula</button>
 		{% for pelicula in peliculas %}
-			<h3>{{pelicula.name}}</h3>
-			<ul>
-				<li>Pelicula: {{pelicula.titulo}}</li>
+			<h3>{{pelicula.titulo}}</h3>
+			<ul>				
 				<li>Clave: {{pelicula.clave}}</li>
-				<input type ="checkbox" name "pelicula {{pelicula.titulo}}" value "{{pelicula.id}}"/>Rentar
+				<li>Duracion: {{pelicula.duracion}}</li>
+				<li>sinopsis: {{pelicula.sinopsis}}</li>
+				<li>genero: {{pelicula.genero}}</li>
+				<li>clasificacion: {{pelicula.clasificacion}}</li>
 			</ul>
-			<a href = "javascript: if(confirm('Deseas editar {{pelicula}}??')) window.location='{% url "editar_pelicula" pk=pelicula.id %}'"> Editar</a>
-			<a href = "javascript: if(confirm('Deseas eliminar {{pelicula}}??')) window.location='{% url "eliminar_pelicula" pk=pelicula.id %}'"> Eliminar</a>
+			<a href = "javascript: if(confirm('Deseas editar {{pelicula}}??')) window.location='{% url "editar_pelicula" pk=pelicula.id %}'" name="editar_pelicula_{{pelicula.titulo}}"> Editar</a>
+			<a href = "javascript: if(confirm('Deseas eliminar {{pelicula}}??')) window.location='{% url "eliminar_pelicula" pk=pelicula.id %}'" name = "eliminar_pelicula_{{pelicula.titulo}}"> Eliminar</a>
 			<hr>
 			<br>
 		{% endfor %}
-		<button onclick="window.location='{% url "renta_nueva" %}'">Nueva Renta</button>
 	</div>
 </body>
 </html>

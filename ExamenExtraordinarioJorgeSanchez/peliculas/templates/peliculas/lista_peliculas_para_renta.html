@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Peliculas en existencia</title>
+</head>
+<body>
+	<div>
+		<h1>Lista de Peliculas Disponibles</h1>
+		{% for pelicula in peliculas %}
+			<h3>{{pelicula.titulo}}</h3>
+			<ul>
+				<li>Duracion: {{pelicula.duracion}}</li>
+				<li>sinopsis: {{pelicula.sinopsis}}</li>
+				<li>genero: {{pelicula.genero}}</li>
+				<li>clasificacion: {{pelicula.clasificacion}}</li>
+				<input type="checkbox" name="pelicula" value="{{pelicula.id}}"/>Rentar
+			</ul>
+			<hr>
+			<br>
+		{% endfor %}
+		<button onclick="window.location='{% url "renta_nueva" %}'">Rentar Pelicula(s)</button>
+	</div>
+</body>
+</html>
