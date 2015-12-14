@@ -8,8 +8,8 @@
 			<form method="POST">
 				{% csrf_token %}
 					{{ form.as_p }}
-					<input type = "submit" value = "Guardar" />
-					<button class="btn btn-primary" type="button" onclick="window.location='{% url "lista_rentas" %}'"> Cancelar </button>	
+					<input type = "submit" value = "Guardar" name= "Guardar_Renta" />
+					<button class="btn btn-primary" type="button" onclick="window.location='{% url "lista_rentas" %}'"name="Cancelar_Renta"> Cancelar </button>	
 			</form>
 	</div>
 </body>

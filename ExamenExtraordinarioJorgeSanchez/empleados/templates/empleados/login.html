@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Entrada al sistema</title>
+</head>
+<body>
+	<div>
+		<h1><strong>Logeate</strong></h1>
+		<form action="" method="POST">
+			{% csrf_token %}
+				{{ formulario.as_p }}
+				<input type="submit" value="Iniciar sesion" name= "iniciar_sesion">			
+		</form>
+	</div>
+</body>
+</html>

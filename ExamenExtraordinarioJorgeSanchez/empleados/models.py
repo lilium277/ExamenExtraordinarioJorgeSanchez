@@ -7,4 +7,4 @@ class Empleados(models.Model):
 	user = models.OneToOneField(User)
 
 	def __str__(self):
-		return self.user
+		return self.user.username

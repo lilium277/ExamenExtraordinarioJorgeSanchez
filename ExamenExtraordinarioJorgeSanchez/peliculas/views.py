@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from peliculas.models import Peliculas
 from peliculas.forms import PeliculasForm
+from django.contrib.auth.decorators import permission_required
 
 # Create your views here.
 def listar_peliculas(request):
@@ -8,6 +9,7 @@ def listar_peliculas(request):
 	#return render(request, 'peliculas/lista_peliculas_para_renta.html', {'peliculas':peliculas})
 	return render(request, 'peliculas/lista_peliculas.html', {'peliculas':peliculas})
 
+#@permission_required('usuarios.can_add','index')
 def nueva_pelicula(request):
 	if request.method == "POST":
 		form = PeliculasForm(request.POST)

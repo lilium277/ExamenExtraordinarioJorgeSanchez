@@ -45,17 +45,19 @@ class NewVisitorTest(unittest.TestCase):
 
         button = self.browser.find_element_by_name('Guardar_Pelicula')
         button.send_keys(Keys.ENTER)
-        """inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertEqual(
-                inputbox.get_attribute('placeholder'),
-                'Enter a to-do item'
-        )"""
-
+        
+        #busca la nueva pelicula guardada
         table = self.browser.find_element_by_tag_name('div')
         rows = table.find_elements_by_tag_name('h3')
         self.assertTrue(
-            any(row.text == 'Star Wars episodio 2' for row in rows)
-        )        
+            any(row.text == 'Volver al futuro 3' for row in rows)
+        )
+
+        #elimina la nueva pelicula guardada
+        """button = self.browser.find_element_by_name('elimina_pelicula_Volver al futuro 3')
+        button.send_keys(Keys.ENTER)"""
+
+
 
 if __name__ == '__main__':  
     unittest.main() 
