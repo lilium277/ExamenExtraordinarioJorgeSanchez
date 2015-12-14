@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import permission_required
 # Create your views here.
 def listar_peliculas(request):
 	peliculas = Peliculas.objects.all()
-	#return render(request, 'peliculas/lista_peliculas_para_renta.html', {'peliculas':peliculas})
-	return render(request, 'peliculas/lista_peliculas.html', {'peliculas':peliculas})
+	return render(request, 'peliculas/lista_peliculas_para_renta.html', {'peliculas':peliculas})
+	#return render(request, 'peliculas/lista_peliculas.html', {'peliculas':peliculas})
 
 #@permission_required('usuarios.can_add','index')
 def nueva_pelicula(request):

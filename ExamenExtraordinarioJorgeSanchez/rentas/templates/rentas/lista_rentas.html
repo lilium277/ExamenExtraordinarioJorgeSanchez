@@ -4,15 +4,16 @@
 </head>
 <body>
 	<div>
-		<h1>Lista de rentas por cliente</h1>	
-		{% for renta in rentas %}
-			<h3>{{renta.cliente}}</h3>
-			<ul>
-				<li>{{renta.fecha_renta}}</li>
-			</ul>
-			<hr>
-			<br>
-		{% endfor %}
+		<h1>Lista de rentas por cliente</h1>
+		{% csrf_token %}
+			{% for renta in rentas %}
+				<h3>{{renta.cliente}}</h3>
+				<ul>
+					<li>{{renta.fecha_renta}}</li>
+				</ul>
+				<hr>
+				<br>
+			{% endfor %}
 		<button onclick="window.location='{% url "lista_detalles" %}'" name = "lista_detalles">Mostrar Detalles</button>
 	</div>
 </body>

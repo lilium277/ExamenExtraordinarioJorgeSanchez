@@ -4,6 +4,7 @@ from rentas.forms import RentasForm
 from peliculas.models import Peliculas
 from detallerenta.models import DetallesRentas
 from datetime import datetime,timedelta
+from clientes.models import Clientes
 
 # Create your views here.
 def listar_rentas(request):
@@ -12,19 +13,20 @@ def listar_rentas(request):
 
 def renta_nueva(request):
 	if request.method == "POST":
-		form = RentasForm(request.POST)
-		peliculas = request.POST.getlist('peliculas')
-		print (request.POST.getlist('peliculas'))
-		print (request.POST)
-		if form.is_valid():
-			renta = form.save()
+		cliente = Clientes.objects.get(user=request.user)
+		if cliente is not None:
+			renta = Rentas(fecha_renta=datetime.now(),cliente=cliente)
+			peliculas = request.POST.getlist('pelicula')
+			print ("Ya estan creada la lista de peliculas")
+			print (peliculas)
+			print (request.POST)			
 			renta.save()
 			for pelicula in peliculas:
-				pelicula_Temp = Peliculas.objects.get(id="peliculas.value")
-				print (pelicula_Temp)
-				print (renta)
+				print ("Empieza el for")
+				pelicula_Temp = Peliculas.objects.get(id=pelicula)
+				print (pelicula_Temp)				
 				entrega= renta.fecha_renta + timedelta(days=3)
-				detalles = DetallesRentas(fecha_entrega=entrega,pelicula=pelicula_Temp,renta=renta)
+				detalles = DetallesRentas(fecha_entrega=entrega,pelicula=pelicula_Temp,renta=renta)				
 				detalles.save()
 			return redirect('lista_rentas')
 	else:

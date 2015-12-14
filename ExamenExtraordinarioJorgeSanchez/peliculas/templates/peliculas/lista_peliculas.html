@@ -6,6 +6,7 @@
 	<div>
 		<h1>Lista de Peliculas existentes</h1>
 		<button onclick="window.location='{% url "nueva_pelicula" %}'" name= "Nueva_pelicula">Nueva Pelicula</button>
+		{% csrf_token %}
 		{% for pelicula in peliculas %}
 			<h3>{{pelicula.titulo}}</h3>
 			<ul>				

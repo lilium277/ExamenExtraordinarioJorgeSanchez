@@ -5,19 +5,24 @@
 <body>
 	<div>
 		<h1>Lista de Peliculas Disponibles</h1>
-		{% for pelicula in peliculas %}
-			<h3>{{pelicula.titulo}}</h3>
-			<ul>
-				<li>Duracion: {{pelicula.duracion}}</li>
-				<li>sinopsis: {{pelicula.sinopsis}}</li>
-				<li>genero: {{pelicula.genero}}</li>
-				<li>clasificacion: {{pelicula.clasificacion}}</li>
-				<input type="checkbox" name="pelicula" value="{{pelicula.id}}"/>Rentar
-			</ul>
-			<hr>
-			<br>
-		{% endfor %}
+		<form action="{% url "renta_nueva" %}" method="POST">
+		{% csrf_token %}
+			{% for pelicula in peliculas %}
+				<h3>{{pelicula.titulo}}</h3>
+				<ul>
+					<li>Duracion: {{pelicula.duracion}}</li>
+					<li>sinopsis: {{pelicula.sinopsis}}</li>
+					<li>genero: {{pelicula.genero}}</li>
+					<li>clasificacion: {{pelicula.clasificacion}}</li>
+					<input type="checkbox" name="pelicula" value="{{pelicula.id}}"/>Rentar
+				</ul>
+				<hr>
+				<br>
+			{% endfor %}
+		<input type="submit" value="Rentar Peliculas">
+		</form>		
 		<button onclick="window.location='{% url "renta_nueva" %}'" name="Nueva_renta">Rentar Pelicula(s)</button>
+
 	</div>
 </body>
 </html>
