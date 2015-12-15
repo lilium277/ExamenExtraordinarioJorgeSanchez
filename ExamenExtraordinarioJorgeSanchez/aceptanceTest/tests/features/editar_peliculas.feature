@@ -6,4 +6,4 @@ Feature: Como empleado del videoclub
 Scenario: Editar la pelicula volver al futuro
 	Given Que selecciono la opcion "editar_pelicula_" de la pelicula "volver al futuro 2" y cambio el campo descripcion por "La segunda de 3"
 	When Oprimo el boton de guardar
-	Then puedo ver en la descripcion "La segunda de 3"
+	Then puedo ver en la sinopsis "La segunda de 3"

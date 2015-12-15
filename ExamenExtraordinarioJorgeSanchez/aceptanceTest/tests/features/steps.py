@@ -4,32 +4,33 @@ from selenium import webdriver
 
 @step(u'Given Que ingreso el cuadro de texto Clave: "([^"]*)" y ingreso en la caja de texto Titulo: "([^"]*)" y en la caja de Duracion: "([^"]*)" y en la caja de Sinopsis: "([^"]*)" y en la caja Genero: "([^"]*)" y en la caja Clasificacion: "([^"]*)"')
 def given_que_ingreso_el_cuadro_de_texto_clave_group1_y_ingreso_en_la_caja_de_texto_titulo_group2_y_en_la_caja_de_duracion_group3_y_en_la_caja_de_sinopsis_group4_y_en_la_caja_genero_group5_y_en_la_caja_clasificacion_group6(step, group1, group2, group3, group4, group5, group6):
-    self.browser = webdriver.Firefox()
-    self.browser.get('http://192.168.0.24:8000/peliculas/')
-    button = self.browser.find_element_by_tag_name('button')
+    world.driver = webdriver.Firefox()
+    #world.driver.get('http://192.168.0.24:8000/peliculas/')
+    world.driver.get('http://10.2.48.179:8000/peliculas/lista_existencias')
+    button = world.driver.find_element_by_tag_name('button')
     button.send_keys(Keys.ENTER)
 
-    textBox = self.browser.find_element_by_id('id_clave')
+    textBox = world.driver.find_element_by_id('id_clave')
     textBox.send_keys(group1)
-    textBox = self.browser.find_element_by_id('id_titulo')
+    textBox = world.driver.find_element_by_id('id_titulo')
     textBox.send_keys(group2)
-    textBox = self.browser.find_element_by_id('id_duracion')
+    textBox = world.driver.find_element_by_id('id_duracion')
     textBox.send_keys(group3)
-    textBox = self.browser.find_element_by_id('id_sinopsis')
+    textBox = world.driver.find_element_by_id('id_sinopsis')
     textBox.send_keys(group4)
-    textBox = self.browser.find_element_by_id('id_genero')
+    textBox = world.driver.find_element_by_id('id_genero')
     textBox.send_keys(group5)
-    textBox = self.browser.find_element_by_id('id_clasificacion')
+    textBox = world.driver.find_element_by_id('id_clasificacion')
     textBox.send_keys(group6)
 
 @step(u'When Oprimo el boton de guardar')
 def when_oprimo_el_boton_de_guardar(step):
-    button = self.browser.find_element_by_name('Guardar_Pelicula')
+    button = world.driver.find_element_by_name('Guardar_Pelicula')
     button.send_keys(Keys.ENTER)
 
 @step(u'Then puedo ver el titulo "([^"]*)" en la lista de peliculas guardadas')
 def then_puedo_ver_el_titulo_group1_en_la_lista_de_peliculas_guardadas(step, group1):
-    table = self.browser.find_element_by_tag_name('div')
+    table = world.driver.find_element_by_tag_name('div')
     rows = table.find_elements_by_tag_name('h3')
     self.assertTrue(
         any(row.text == group1 for row in rows)

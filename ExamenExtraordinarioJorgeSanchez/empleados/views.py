@@ -47,5 +47,4 @@ def main(request):
 	return render(request,'empleados/iniciar_sesion.html')
 
 def homepage(request):
-	return render_to_response('homepage.html',
-			context_instance=RequestContext(request))
+	return render_to_response('empleados/homepage.html')
