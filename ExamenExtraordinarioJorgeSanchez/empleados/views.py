@@ -34,7 +34,7 @@ def iniciar_sesion(request):
 			if acceso is not None:
 				if acceso.is_active:
 					login(request, acceso)
-					return HttpResponseRedirect('peliculas/lista_peliculas.html')
+					return render(request, 'peliculas/lista_peliculas.html',{})
 				else:
 					return HttpResponseRedirect('empleados/nuevo_usuario.html')
 			else:
@@ -45,3 +45,7 @@ def iniciar_sesion(request):
 
 def main(request):
 	return render(request,'empleados/iniciar_sesion.html')
+
+def homepage(request):
+	return render_to_response('homepage.html',
+			context_instance=RequestContext(request))
